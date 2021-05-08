@@ -1,5 +1,6 @@
 package org.BEMFIKTI.LOGO;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -33,6 +34,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAdd.setOnClickListener(this);
         btnSubstract.setOnClickListener(this);
         btnClear.setOnClickListener(this);
+
+        if (savedInstanceState != null) {
+            count = savedInstanceState.getInt("result");
+            tvResult.setText(Integer.toString(count));
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("result", count);
     }
 
     @Override
