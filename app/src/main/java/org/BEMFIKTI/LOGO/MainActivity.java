@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // ubah nilai result menjadi 0.
                 count = 0;
                 tvResult.setText(Integer.toString(count));
+                break;
         }
     }
 }
