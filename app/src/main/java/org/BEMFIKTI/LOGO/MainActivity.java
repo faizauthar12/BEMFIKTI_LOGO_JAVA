@@ -3,10 +3,11 @@ package org.BEMFIKTI.LOGO;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Membuat variable widget.
     private Button btnAdd;
@@ -24,5 +25,15 @@ public class MainActivity extends AppCompatActivity {
         btnSubstract = findViewById(R.id.btnSubstract);
         btnClear = findViewById(R.id.btnClear);
         tvResult = findViewById(R.id.tvResult);
+
+        // membuat aksi ketika tombol ditekan
+        btnAdd.setOnClickListener(this);
+        btnSubstract.setOnClickListener(this);
+        btnClear.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
