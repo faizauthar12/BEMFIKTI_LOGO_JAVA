@@ -3,6 +3,7 @@ package org.BEMFIKTI.LOGO;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnAdd;
     private Button btnSubstract;
     private Button btnClear;
+    private Button btnIntent;
     private TextView tvResult;
 
     // membuat nilai default untuk tvResult
@@ -28,12 +30,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAdd = findViewById(R.id.btnAdd);
         btnSubstract = findViewById(R.id.btnSubstract);
         btnClear = findViewById(R.id.btnClear);
+        btnIntent = findViewById(R.id.btnIntent);
         tvResult = findViewById(R.id.tvResult);
 
         // membuat aksi ketika tombol ditekan
         btnAdd.setOnClickListener(this);
         btnSubstract.setOnClickListener(this);
         btnClear.setOnClickListener(this);
+        btnIntent.setOnClickListener(this);
 
         if (savedInstanceState != null) {
             count = savedInstanceState.getInt("result");
@@ -64,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // ubah nilai result menjadi 0.
                 count = 0;
                 tvResult.setText(Integer.toString(count));
+                break;
+            case R.id.btnIntent:
+                Intent intent = new Intent(MainActivity.this, IntentActivity.class);
+                startActivity(intent);
                 break;
         }
     }
