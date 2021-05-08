@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnClear;
     private TextView tvResult;
 
+    // membuat nilai default untuk tvResult
+    private int count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.btnAdd:
+                // Tambah nilai result.
+                count++;
+                tvResult.setText(Integer.toString(count));
+                break;
+            case R.id.btnSubstract:
+                // kurangi nilai result.
+                count--;
+                tvResult.setText(Integer.toString(count));
+                break;
+            case R.id.btnClear:
+                // ubah nilai result menjadi 0.
+                count = 0;
+                tvResult.setText(Integer.toString(count));
+        }
     }
 }
