@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnSubstract;
     private Button btnClear;
     private Button btnIntent;
+    private Button btnIntentData;
     private TextView tvResult;
 
     // membuat nilai default untuk tvResult
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSubstract = findViewById(R.id.btnSubstract);
         btnClear = findViewById(R.id.btnClear);
         btnIntent = findViewById(R.id.btnIntent);
+        btnIntentData = findViewById(R.id.btnIntentData);
         tvResult = findViewById(R.id.tvResult);
 
         // membuat aksi ketika tombol ditekan
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSubstract.setOnClickListener(this);
         btnClear.setOnClickListener(this);
         btnIntent.setOnClickListener(this);
+        btnIntentData.setOnClickListener(this);
 
         if (savedInstanceState != null) {
             count = savedInstanceState.getInt("result");
@@ -73,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, IntentActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btnIntentData:
+                Intent intentData = new Intent(MainActivity.this, DataActivity.class);
+                intentData.putExtra(DataActivity.EXTRA_COUNT, Integer.toString(count));
+                startActivity(intentData);
         }
     }
 }
